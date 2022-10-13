@@ -12,8 +12,10 @@
 ## Patterns
 - Composite Pattern
 
-## Protótipo
-A prototipação deste design system foi feita no figma e está disponível no [clicando aqui](https://www.figma.com/file/vVms0ZskRIU6yfCfIvKKF1/Ignite-Lab-Design-System)
+## Artefatos
+- A prototipação deste design system foi feita no figma e está disponível no [clicando aqui](https://www.figma.com/file/vVms0ZskRIU6yfCfIvKKF1/Ignite-Lab-Design-System)
+
+- Para acessar a documentação dos componentes criada utilizando Storybook, [clique aqui](https://bonassa.github.io/design-system-ignite-lab/)
 
 ## Criação do projeto & Instalação das bibliotecas
 
@@ -46,8 +48,13 @@ Storybook é uma ferramenta para criar documentação de componentes, e possibil
 ```
 
 Para rodar o Storybook:
-```
+``` bash
   npm run storybook
+```
+
+- Instalando Addon de Acessibilidade
+```
+  npm install @storybook/addon-a11y
 ```
 
 4. *Radix UI*
@@ -108,6 +115,9 @@ Para substituir algumas propriedades padrões do Tailwind, usamos o seguinte có
   }
 ```
 
+## Transformação de um SVG em um componente React
+Usando o site [`transform.tools`](https://transform.tools/) é possível copiar o logo SVG do React lá do Figma, e transformar em um componente React para utilizar na interface
+
 ## Execução do projeto
 1. Instalação das dependências
 ``` bash
@@ -133,3 +143,39 @@ Para substituir algumas propriedades padrões do Tailwind, usamos o seguinte có
 ``` bash
   npm run build-storybook
 ```
+
+3. Criar o arquivo `deploy-docs.yml` dentro da página `.github/workflows`
+```yml
+  name: Deploy Storybook
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Deploy Storybook
+        run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
+        env:
+          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+```
+
+4. Adicionar as mudanças ao repositório do GitHub.

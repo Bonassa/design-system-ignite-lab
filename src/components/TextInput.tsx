@@ -40,7 +40,7 @@ function TextInputIcon(props : TextInputIconProps) {
 function TextInputInput(props : TextInputInputProps) {
   return (
     <input 
-      className='bg-transparent flex-1 outline-none text-gray-100 placeholder:text-gray-500 text-xs'
+      className='bg-transparent h-12 flex-1 outline-none text-gray-100 placeholder:text-gray-500 text-xs'
       {...props}
     />
   );
