@@ -109,7 +109,6 @@ Para substituir algumas propriedades padrões do Tailwind, usamos o seguinte có
 ```
 
 ## Execução do projeto
-
 1. Instalação das dependências
 ``` bash
   npm install
@@ -122,4 +121,15 @@ Para substituir algumas propriedades padrões do Tailwind, usamos o seguinte có
 2. Execução em modo de desenvolvimento
 ``` bash
   npm run dev
+```
+
+## Deploy da documentação no GitHub Pages
+1. Instalação do Storybook deployer
+``` bash
+  npm i @storybook/storybook-deployer --save-dev
+```
+
+2. Gerar o build do storybook
+``` bash
+  npm run build-storybook
 ```
