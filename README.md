@@ -2,12 +2,15 @@
 
 ## Ferramentas utilizadas
 - `React JS`
-- [Vite](https://vitejs.dev/)
+- [`Vite`](https://vitejs.dev/)
 - `Typescript`
-- [Storybook](https://storybook.js.org/docs/react/get-started/install)
+- [`Storybook`](https://storybook.js.org/docs/react/get-started/install)
 - `Tailwind`
-- [Radix UI](https://www.radix-ui.com/)
+- [`Radix UI`](https://www.radix-ui.com/)
 - `Figma`
+
+## Patterns
+- Composite Pattern
 
 ## Protótipo
 A prototipação deste design system foi feita no figma e está disponível no [clicando aqui](https://www.figma.com/file/vVms0ZskRIU6yfCfIvKKF1/Ignite-Lab-Design-System)
@@ -50,8 +53,18 @@ Para rodar o Storybook:
 4. *Radix UI*
 Radix é uma biblioteca de componentes primitivos não estilizados, que auxilia na criação de componentes personalizados.
 Iremos utilizar o primitive `Slot` para possibilitar polimorfismo do component, permitindo selecionar qual tag será utilizada.
+
+Também utilizaremos o componente de `Checkbox` do Radix.
 ``` bash
   npm install @radix-ui/react-slot
+
+  npm install @radix-ui/react-checkbox
+```
+
+5. *Phosphor Icons*
+Biblioteca de icones para o react
+``` bash
+  npm install --save phosphor-react
 ```
 
 ### Configuração do Tailwind
@@ -93,4 +106,20 @@ Para substituir algumas propriedades padrões do Tailwind, usamos o seguinte có
     },
     plugins: [],
   }
+```
+
+## Execução do projeto
+
+1. Instalação das dependências
+``` bash
+  npm install
+
+  #ou
+
+  yarn install
+```
+
+2. Execução em modo de desenvolvimento
+``` bash
+  npm run dev
 ```
