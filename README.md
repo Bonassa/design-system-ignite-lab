@@ -7,6 +7,7 @@
 - [`Storybook`](https://storybook.js.org/docs/react/get-started/install)
 - `Tailwind`
 - [`Radix UI`](https://www.radix-ui.com/)
+- [`Jest`](https://jestjs.io/pt-BR/)
 - `Figma`
 
 ## Patterns
@@ -72,6 +73,42 @@ Também utilizaremos o componente de `Checkbox` do Radix.
 Biblioteca de icones para o react
 ``` bash
   npm install --save phosphor-react
+```
+
+6. *Testes com Jest no Storybook*
+Podemos testar nossos componentes e paginas usando o framework Jest dentro do Storybook,
+``` bash
+  npm install @storybook/addon-interactions @storybook/jest @storybook/testing-library @storybook/test-runner -D
+```
+
+As demais configurações podem ser acessadas [clicando aqui](https://storybook.js.org/addons/@storybook/addon-interactions)
+
+Adicione o comando no `package.json` para executar os testes no terminal.
+```json
+  "scripts": {
+    // ...
+    "test-storybook": "test-storybook"
+  },
+``` 
+
+7. *Criação de Mock*
+Para simularmos um backend, podemos usar mocks, já que não seria viavel todas as vezes que fosse usar o storybook precisar subir todo um backend apenas para visualizar os componentes etc..
+
+Iremos utilizar o [`MSW`](https://mswjs.io/) (Mock Service Worker), essa ferramenta cria praticamente uma API funcional no service worker do browser, permitindo realizar chamadas a uma API de forma local, sem precisar subir um backend, isso é claro, apenas deve ser utilizado em ambiente de desenvolvimento.
+
+O MSW possui integração com o Storybook. https://github.com/mswjs/msw-storybook-addon
+```bash
+  npm i msw msw-storybook-addon -D
+
+  npx msw init public/ #public é a pasta publica do projeto
+```
+
+Depois adiciona ao `main.cjs` do storybook para o storybook procurar por arquivos estáticos
+```cjs
+  ...
+  "staticDirs": [
+    "../public"
+  ],
 ```
 
 ### Configuração do Tailwind
