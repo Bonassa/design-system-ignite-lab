@@ -7,7 +7,6 @@ export default {
   component: CheckBox,
   args: {
     checked: true,
-    label: 'Checkbox component'
   },
   argTypes: {}
 } as Meta<CheckBoxProps>
