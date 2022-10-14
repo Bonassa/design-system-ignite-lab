@@ -1,0 +1,2 @@
+import{C as o}from"./CheckBox.1a666246.js";import"./index.caf84c82.js";import"./iframe.d77a0c05.js";import"./index.module.c933f8f6.js";import"./index.45421563.js";import"./jsx-runtime.d5b0620e.js";import"./IconBase.esm.a897a536.js";const i={title:"Components/CheckBox",component:o,args:{checked:!0},argTypes:{}},a={},n=["Default"];export{a as Default,n as __namedExportsOrder,i as default};
+//# sourceMappingURL=CheckBox.stories.f25dd471.js.map
